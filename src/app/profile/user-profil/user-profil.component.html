@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+
+<div class="container" *ngIf="user">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <img class="rounded-circle img-thumbnail" [src]="imgPath + user.photo" alt="" *ngIf="user.photo">
+            <img class="rounded-circle img-thumbnail" [src]="imgDefaultUrl" alt="" *ngIf="user.photo == null">
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <h5 class="col-md-2">{{user.username}}</h5>
+
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-3"> <span style="font-weight: bold;"> {{numberofPhotos}} publications</span></div>
+                <div class="col-md-3"> <a data-toggle="modal" data-target="#aboModal">0 abonnés</a>
+                    <div class="modal fade" id="aboModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Abonnés</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"><a data-toggle="modal" data-target="#abonnementModal">12 abonnements</a>
+                    <div class="modal fade" id="abonnementModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Abonnements</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <i class="col">{{user?.bio}} </i>
+            </div>
+        </div>
+    </div>
+    <hr class="mb-0 mt-5">
+    <div>
+        <ul class="nav justify-content-center">
+            <li class="nav-item mr-5">
+                <span class="nav-link ">PUBLICATIONS</span>
+            </li>
+
+        </ul>
+    </div>
+
+    <app-publications [id]="user.id_users"></app-publications>
+
+    <app-footer></app-footer>
+</div>

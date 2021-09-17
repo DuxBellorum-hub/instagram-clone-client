@@ -1,0 +1,32 @@
+<div class="wrapper">
+	<div class="header">
+		<div class="top">
+			<div class="logo">
+				<img src="./../../../assets/img/logo.png" alt="instagram" style="width: 175px;">
+			</div>
+			<div class="form">
+				<form #loginForm="ngForm" >
+					<div class="input_field">
+						<input type="email" [(ngModel)]="email" name="email"  placeholder="Email" class="input" required>
+					</div>
+					<div class="input_field">
+						<input type="password" [(ngModel)]="password" name="password"  placeholder="Mot de passe" class="input" required>
+					</div>
+					<small style="color: red;">{{errorMessage}}</small>
+					<button type="submit" (click) = "login()" class="btn btn-primary">Se connecter</button>
+
+				</form>
+
+			</div>
+
+		</div>
+		<div class="signup">
+			<p style="font-size: 13px;"> Pas de compte ? <a href="/register">Inscription</a></p>
+		</div>
+
+	</div>
+
+</div>
+
+
+<app-footer></app-footer>

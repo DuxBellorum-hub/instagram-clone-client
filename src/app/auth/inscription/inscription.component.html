@@ -1,0 +1,71 @@
+<div class="wrapper">
+    <div class="header">
+        <div class="top">
+            <div class="logo">
+                <img src="./../../../assets/img/logo.png" alt="instagram" style="width: 175px;">
+                <p class="mt-0 mb-3 top-text">Inscivez-vous pour voir les photos de vos amis.</p>
+            </div>
+
+
+
+            <div class="form">
+                <form [formGroup]="creationForm" #formDirective (submit)="registerUser(formDirective)">
+                    <div *ngIf="errorMessage" class="alert alert-danger mb-2" role="alert">
+                        {{errorMessage}}
+                      </div>                      
+                    <div class="input_field">
+                        <input type="text" [ngClass]="{'errors': submitted && creationForm.controls.username.errors }"
+                            formControlName="username" placeholder="Nom d'utilisateur" class="input" required>
+                        <small *ngIf="submitted && creationForm.controls.username.errors" class="text-danger ">Champ
+                            obligatoire!</small>
+                    </div>
+                    <div class="input_field">
+                        <input type="text" [ngClass]="{'errors': submitted && creationForm.controls.email.errors }"
+                            formControlName="email" placeholder="Email" class="input" required>
+                        <div *ngIf="submitted && creationForm.controls.confirmPassword.errors">
+
+                            <small *ngIf="submitted && creationForm.controls.email.errors" class="text-danger">Email
+                                invalide!</small>
+
+                        </div>
+                    </div>
+                    <div class="input_field">
+                        <input type="password"
+                            [ngClass]="{'errors': submitted && creationForm.controls.password.errors?.required != null  && creationForm.controls.password.errors}"
+                            formControlName="password" placeholder="Mot de passe" class="input" required>
+                        <small class="text-danger"
+                            *ngIf="submitted && creationForm.controls.password.errors?.required != null  &&creationForm.controls.password.errors?.required ">champ
+                            obligatoire</small>
+                    </div>
+                    <div class="input_field">
+                        <input type="password"
+                            [ngClass]="{'errors': submitted && creationForm.controls.confirmPassword.errors }"
+                            formControlName="confirmPassword" placeholder="Retapez mot de passe" class="input" required>
+                        <div *ngIf="submitted && creationForm.controls.confirmPassword.errors">
+                            <small class="text-danger"
+                                *ngIf="submitted && creationForm.controls.confirmPassword.errors?.required">champ
+                                obligatoire!</small>
+                            <small class="text-danger"
+                                *ngIf="submitted && creationForm.controls.confirmPassword.errors?.mustMatch">Mot de passe
+                                ne correspond pas!</small>
+
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-info">S'inscrire</button>
+                </form>
+                <div class="text-center mt-4">
+                    <p style="font-size: 13px;"> Déjà un compte ? <a href="/auth">Se connecter</a></p>
+                </div>
+        
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<app-footer></app-footer>

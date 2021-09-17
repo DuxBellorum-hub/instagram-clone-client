@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <div class="row">
+        <div class=" col-sm-12 col-md-6 col-lg-4 mt-4 mb-4 doc animate__animated animate__fadeInDown" *ngFor="let img of publications">
+
+            <img [src]="imgPath + img.url" >
+            <div class="links text-center " (dblclick) = "likePhoto(img.id_publications)"  (mouseenter) = "whichImgId(img.id_publications)" (mouseleave) = "resetImgId()">
+                <span *ngIf="liked" class="like"><i class="fa fa-heart fa-1x">  {{img.likes || 0}} </i></span>
+                <span class="like" style="visibility: hidden;"><i class="fa fa-heart fa-1x heart "></i></span>
+                <div >
+                    <span *ngIf="errMessageLike && img.id_publications === flyoverIdImg" class="like" >{{errMessageLike}}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>

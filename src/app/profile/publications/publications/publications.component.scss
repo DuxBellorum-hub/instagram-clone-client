@@ -1,0 +1,35 @@
+
+.doc{
+    margin: 0;
+    padding: 0;
+    
+}
+
+.doc:hover > .links {
+    
+    display: block;
+    width:293px;
+    height:293px;
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:#000;
+    opacity:0.5;
+    
+   
+}
+
+.links {
+    display: none;
+
+}
+
+.like{
+    color : white;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+}

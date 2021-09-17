@@ -1,0 +1,41 @@
+
+img{
+    height: 300px;
+    width: 300px;
+    position: relative;
+    
+}
+.doc{
+    margin: 0;
+    padding: 0;
+    
+}
+
+.doc:hover > .links {
+    
+    display: block;
+    width:300px;
+    height:300px;
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:#000;
+    opacity:0.5;
+    
+   
+}
+
+.links {
+    display: none;
+
+}
+
+.like, .comments{
+    color : white;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+}

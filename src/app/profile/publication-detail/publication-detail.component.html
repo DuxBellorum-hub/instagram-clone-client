@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+
+<div id="card-container" class="row justify-content-md-center mt-3 mb-3">
+    <div class="col-md-7 col-lg-4 ">
+        <div class="card">
+            <div class="card-title ml-2">
+                <a *ngIf="user" [routerLink]="['/profil/',user?.id_users]">
+                    <img class="rounded-circle img-thumbnail profil-img mt-1 "
+                        [src]="user?.photo != null ? imagePath + user?.photo : assetImg " alt=""></a>
+
+                <a *ngIf="user" class="profil-name ml-2"
+                    [routerLink]="['/profil/', user?.id_users]">{{user?.username}}</a>
+                <div class="text-right" style="margin-right: 5px; font-style: italic;">Publié le {{date |
+                    date:"d/MM/yyyy"}}</div>
+            </div>
+            <div class="img-container">
+                <img *ngIf="photo" [src]="imagePath + photo" (dblclick)="likePhoto()" class="card-img-top" alt="...">
+                <span class="like" style="visibility: hidden; color:red;"><i
+                        class="fa fa-heart fa-5x heart "></i></span>
+                        
+            </div>
+            <div class="ml-2 mt-2" style="font-weight: bold;">
+                <p *ngIf="errorMsg" class="animate__animated animate__wobble " style="color:red; text-align: center;">{{errorMsg}}</p>
+                <div>
+                    <i class="fa fa-heart-o" style="font-size:20px;"></i> {{likes === 0 ? "0 like" : likes + " likes"}}
+                    <i *ngIf="isConnected" class="fa fa-trash float-right mr-2 " style="font-size:20px; color:red" (click)="deletePhoto()"></i>
+                </div>
+            </div>
+
+
+            <div class="card-body">
+
+                <div class="card-text">
+                    <div class="media">
+
+                        <div class="media-body">
+
+                            <app-comment-handle></app-comment-handle>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <!--   <div class="comment-area">
+                <div class="input-group">
+                    <textarea class="form-control" placeholder="Ajouter un commentaire..."></textarea>
+                    <div class="input-group-append">
+                        <button class="input-group-text btn btn-outline-info" type="button">Publier</button>
+                    </div>
+                </div>
+
+            </div>
+ -->
+
+            <app-comment-form></app-comment-form>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>

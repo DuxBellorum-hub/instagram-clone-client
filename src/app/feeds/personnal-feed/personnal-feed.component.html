@@ -1,0 +1,90 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div id="card-container" class="col-md-8 col-lg-7 mt-5">
+            <div class=" mb-5">
+                <div class="card">
+                    <div class="card-body">
+                        <carousel [height]="50" [cellWidth]="100">
+                            <div class="carousel-cell " *ngFor="let user of users">
+                                <a [routerLink]="['/profil', user.id_users]">
+                                    <img class="suggestion-img mx-0 px-0 " [src]="imgPath + user.photo "
+                                        *ngIf="user.photo" [alt]="user.username">
+                                    <img class=" suggestion-img mx-0 px-0" [src]="imgDefaultUrl" *ngIf="!user.photo"
+                                        [alt]="user.username">
+                                </a>
+                            </div>
+                        </carousel>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="row justify-content-md-center">
+        <div id="card-container" class=" col-md-8 col-lg-7 mt-3 mb-3">
+            <div class="mb-5" *ngFor="let publi of allPublications">
+                <div class="card">
+                    <div class="card-title ml-2">
+                        <span>
+                            <img class="rounded-circle img-thumbnail profil-img mt-1 " [src]="imgPath + publi.photo"
+                                alt="" *ngIf="publi.photo">
+                            <img class="rounded-circle img-thumbnail profil-img mt-1" [src]="imgDefaultUrl" alt=""
+                                *ngIf="publi.photo ==  null">
+
+                        </span>
+
+                        <span class="profil-name ml-2">{{publi.username}}</span>
+                        <div class="text-right" style="margin-right: 5px; font-style: italic;">Publié le {{publi.date |
+                            date:"d/MM/yyyy"}}</div>
+                    </div>
+
+                    <img [src]="imgPath + publi.url" class="card-img-top" alt="...">
+
+
+                    <div class="card-body">
+
+                        <div class="card-text">
+                            <div class="media">
+                                <div class="media-body">
+                                    <hr>
+                                    <div *ngFor="let c of allComments">
+                                        <div *ngIf="c.id_publications === publi.id_publications">
+                                            <p class="commentary mt-1 ml-2"> {{c.content}}
+                                                <small style="display: block;" class="text-muted ml-2 mt-2"> {{c.date |
+                                                    date:"d/MM/yyyy, h:mm a"}}</small>
+                                            </p>
+                                            <hr>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <app-comment-form [id]="publi.id_publications"></app-comment-form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+</div>

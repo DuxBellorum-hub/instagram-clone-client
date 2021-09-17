@@ -1,0 +1,11 @@
+<hr>
+<div *ngFor="let c of comments">
+    <p class="commentary mt-1 ml-2"> {{c.content}} 
+        <small style="display: block;" class="text-muted ml-2 mt-2"> {{c.date |  date:"d/MM/yyyy, h:mm a"}}</small>
+    </p>
+    <hr>
+</div>
+
+<div *ngIf="comments.length < 1">
+    <p>Aucun commentaire pour le moment ...</p>
+</div>

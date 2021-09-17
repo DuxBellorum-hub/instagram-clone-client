@@ -1,0 +1,21 @@
+<div class="container mt-5" *ngIf="!photosLiked">
+    <div class=" row justify-content-center ">
+        <div class="col-md-4 text-center ">
+            <img class="mb-3" height="62" src="./../../../../assets/img/bookmark.png" alt="">
+            <p class=" mt-3">Likez les photos que vous voulez revoir, elles seront disponibles ici.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" *ngIf="photosLiked">
+    <div class="row">
+        <div class=" mt-3 col-sm-12 col-md-6 col-lg-4 doc animate__animated animate__fadeInDown" *ngFor="let img of photosLiked | async">
+            <img  style="height: 293px; width: 293px; " [src]="imagePath + img.url" alt="..." class="rounded p-1 likedImg" (click)="resize(img.url)" (mouseleave) ="decreaseSize(img.url)">
+        </div>
+        
+    </div>
+    
+
+</div>

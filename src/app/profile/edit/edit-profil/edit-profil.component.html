@@ -1,0 +1,65 @@
+<div class="row global-content" style="display: relative;">
+    <app-navbar style="width: 100vw !important;"></app-navbar>
+    <div id="wrapper">
+
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+                <li class="active">
+                    <a (click)="editProfil()">Modifier profil</a>
+                </li>
+                <li class="active">
+                    <a (click)="editPhoto()">Modifier photo de profil</a>
+                </li>
+                <li>
+                    <a (click)="editPassword()">Changer le mot de passe</a>
+
+                </li>
+                <li>
+                    <button style="width: 100%; margin-top: 20px;" class=" btn btn-danger" 
+                        data-toggle="modal" data-target="#exampleModal">Supprimer le compte</button>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true" style="display: absolute; top: 40%; ">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Mot de passe exigé pour confirmer suppression</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="password" [(ngModel)]="password" placeholder="mot de passe" class="form-control" id="password">
+                        <small *ngIf="messageToDisplay" class="alert-danger">{{messageToDisplay}} </small>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" (click)="deleteAccount()">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-10">
+                        <app-edit-user-data *ngIf="userInfos && user?.username" [username]="user.username"
+                            [bio]="user.bio"></app-edit-user-data>
+                        <app-edit-user-photo *ngIf="userPhoto"></app-edit-user-photo>
+                        <app-edit-password *ngIf="userPasswordInfo"></app-edit-password>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

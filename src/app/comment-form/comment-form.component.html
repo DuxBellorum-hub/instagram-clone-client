@@ -1,0 +1,12 @@
+
+<div class="comment-area">
+    <div class="input-group">
+        <form #commentForm="ngForm">
+            <textarea class="form-control" placeholder="Ajouter un commentaire..." name="content" id="content" [(ngModel)]="comment.content" cols="100" rows="4"></textarea>
+            <div class="input-group-append">
+                <button class="input-group-text btn btn-outline-info" (click) ="addComment()" type="button" [disabled] = "comment.content === ''" >Publier</button>
+            </div>
+        </form>
+
+    </div>
+</div>

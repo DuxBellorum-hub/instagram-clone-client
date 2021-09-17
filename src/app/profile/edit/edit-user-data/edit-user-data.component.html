@@ -1,0 +1,18 @@
+<div class="row mt-3">
+   
+    <div class="form-group col-md-12">
+        <label for="prenom">Nom d'utilisateur</label>
+        <input class="col-md-4" type="text" [(ngModel)]="form.username" placeholder="{{username}}" class="form-control" id="prenom">
+      
+        <small *ngIf="errorMessage" >{{errorMessage}}</small>
+    </div>
+
+    <div class="form-group col-md-12">
+        <label for="bio">Bio</label>
+        <textarea class="form-control" [(ngModel)]="form.bio" placeholder="{{bio != null ? bio : 'Entrez votre bio ici ...'}}" rows="5" id="bio"></textarea>
+    </div>
+    <div class="col-md-8 ">
+        <button type="button" (click)="updateProfil()" class="btn btn-warning" [disabled] ="form.username.trim() == '' &&form.bio.trim() == ''" >Envoyer</button>
+    </div>
+
+</div>

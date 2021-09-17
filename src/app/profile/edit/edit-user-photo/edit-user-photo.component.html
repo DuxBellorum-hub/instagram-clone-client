@@ -1,0 +1,19 @@
+<div class="row mt-5">
+    <div class="col-md-4">
+        <img [src]="imgPath + userProfilImg" height="150"  class="rounded-circle"
+                alt="" *ngIf="userProfilImg else defaultProfil">
+                <ng-template #defaultProfil>
+                    <img [src]="imgUrl" height="150">
+                </ng-template>
+                
+        
+    </div>
+
+    <div class="col-md-12">
+        <input #imgInput id="pic" class=' mr-5' type="file" name="photo" id="photo">
+        <button class=" btn btn-outline-dark mt-5 mb-5" (click)="updatePhoto()"><i class="fa fa-plus"></i></button>
+        <p class="alert alert-danger" *ngIf="messageToDisplay">{{messageToDisplay}}</p>
+    </div>
+
+
+</div>

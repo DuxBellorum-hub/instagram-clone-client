@@ -1,0 +1,40 @@
+#card-container {
+    padding: 0;
+    margin: 0;
+}
+
+.profil-img {
+    width: 32px;
+    height: 32px;
+}
+.suggestion-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+}
+
+
+.profil-name {
+    font-weight: bold;
+    font-size: 14px;
+    color: #262626;
+}
+
+.commentary {
+    font-size: 14px;
+}
+
+.comment-area {
+    width: 100%;
+}
+
+button {
+    color: #0095f6;
+    border-left: none;
+    background-color: white;
+}
+button:hover {
+    background-color: white;
+    color: #0095f6;
+    border-color: grey;
+}

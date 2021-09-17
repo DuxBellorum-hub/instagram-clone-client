@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class=" mt-3 col-sm-12 col-md-6 col-lg-4 doc" *ngFor="let img of photos">
+            <a  (click)="goTo(img.id_publications, id)"><img style="height: 293px; width: 293px; "
+                    [src]="imagePath + img.url"
+                    alt="..." class="rounded p-1">
+                </a>
+                <div class="links text-center " (click)="goTo(img.id_publications, id)">
+                    <div class="like"><i class="fa fa-heart fa-1x">  {{img.likes || 0}} </i></div>
+                </div>
+        </div>
+    </div>
+   
+    
+    <div class="text-center" *ngIf="isConnected">
+        <div *ngIf="errorMsg" class="alert alert-danger mt-3 mb-0"> {{errorMsg}} </div>
+        <form [formGroup]="photoUploadForm" #formDirective (submit)="addPhoto()">
+            <div class="example-container">
+                <input #imgInput type="file" name="publications" id="publications" formControlName="publications">
+                <button class=" btn btn-outline-dark mt-5 mb-5" type="submit" ><i class="fa fa-plus"></i></button>
+            </div>
+        </form>
+    </div>
+
+</div>

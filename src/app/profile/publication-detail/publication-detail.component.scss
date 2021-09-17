@@ -1,0 +1,46 @@
+
+#card-container {
+    padding: 0;
+    margin: 0;
+}
+
+.profil-img {
+    width: 32px;
+    height: 32px;
+}
+
+.profil-name {
+    font-weight: bold;
+    font-size: 14px;
+    color: #262626;
+}
+
+
+
+button {
+    color: #0095f6;
+    border-left: none;
+    background-color: white;
+}
+button:hover {
+    background-color: white;
+    color: #0095f6;
+    border-color: grey;
+}
+ 
+.img-container{
+    position: relative;
+}
+
+.like{
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+
+}
+
+.fa-trash:hover{
+    transform: scale(2);
+}
